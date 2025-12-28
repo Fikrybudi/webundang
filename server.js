@@ -189,9 +189,16 @@ app.delete('/api/gallery/:id', (req, res) => {
 });
 
 // ============================================
-// START SERVER
+// START SERVER (Development) / Export (Vercel)
 // ============================================
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-    console.log(`API available at http://localhost:${PORT}/api/config`);
-});
+
+// For Vercel serverless
+module.exports = app;
+
+// For local development
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+        console.log(`API available at http://localhost:${PORT}/api/config`);
+    });
+}
