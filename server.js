@@ -65,8 +65,13 @@ function readDB() {
 }
 
 // Helper: Write database
+// Helper: Write database
 function writeDB(data) {
-    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+    try {
+        fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+    } catch (error) {
+        console.error("Write error (likely read-only fs):", error.message);
+    }
 }
 
 // Ensure data directory exists
