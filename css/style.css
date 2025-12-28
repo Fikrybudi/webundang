@@ -1,0 +1,2331 @@
+/* ============================================
+   KHITANAN INVITATION TEMPLATE
+   Design System & Styling
+   ============================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap');
+
+/* ============================================
+   CSS Variables (Theme)
+   ============================================ */
+:root {
+  /* Colors */
+  --primary: #1e3a5f;
+  --primary-light: #2d5a8a;
+  --primary-dark: #132840;
+  --secondary: #d4af37;
+  --secondary-light: #e8c85a;
+  --secondary-dark: #b8962d;
+  --background: #faf8f5;
+  --background-alt: #f0ebe3;
+  --text-dark: #2c3e50;
+  --text-light: #6c7a89;
+  --text-white: #ffffff;
+  --overlay: rgba(30, 58, 95, 0.85);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', -apple-system, sans-serif;
+  --font-arabic: 'Amiri', serif;
+
+  /* Spacing */
+  --section-padding: 80px 20px;
+  --container-max: 480px;
+
+  /* Effects */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-strong: 0 15px 50px rgba(0, 0, 0, 0.2);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Layout & Container
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+/* ============================================
+   Cover / Opening Screen
+   ============================================ */
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.cover.open {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cover-content {
+  text-align: center;
+  color: var(--text-white);
+  z-index: 1;
+  padding: 20px;
+}
+
+.cover-ornament {
+  width: 120px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.cover-label {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 15px;
+}
+
+.cover-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--text-white), var(--secondary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cover-child-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 30px;
+}
+
+.cover-guest {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 5px;
+}
+
+.cover-guest-name {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-white);
+  margin-bottom: 40px;
+}
+
+.btn-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: var(--transition-normal);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.btn-open:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+
+.btn-open svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* ============================================
+   Main Content Wrapper
+   ============================================ */
+.main-content {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+.main-content.visible {
+  opacity: 1;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--text-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, var(--background), transparent);
+  z-index: 1;
+}
+
+.hero-ornament-top,
+.hero-ornament-bottom {
+  position: absolute;
+  width: 200px;
+  opacity: 0.3;
+}
+
+.hero-ornament-top {
+  top: 20px;
+  right: -50px;
+  transform: rotate(45deg);
+}
+
+.hero-ornament-bottom {
+  bottom: 100px;
+  left: -50px;
+  transform: rotate(-135deg);
+}
+
+.hero-content {
+  z-index: 2;
+  padding: 40px 20px;
+}
+
+.hero-label {
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.hero-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--secondary);
+  box-shadow: var(--shadow-strong);
+  margin: 0 auto 25px;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--text-white), var(--secondary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-date {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 15px 20px;
+  min-width: 70px;
+}
+
+.countdown-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary);
+  display: block;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   Quote Section
+   ============================================ */
+.quote-section {
+  background: var(--background);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.quote-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.8rem;
+  color: var(--primary);
+  line-height: 2;
+  margin-bottom: 20px;
+  direction: rtl;
+}
+
+.quote-translation {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ============================================
+   Profile Section
+   ============================================ */
+.profile-section {
+  background: linear-gradient(180deg, var(--background) 0%, var(--background-alt) 100%);
+  text-align: center;
+}
+
+.profile-card {
+  background: var(--text-white);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  box-shadow: var(--shadow-medium);
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--secondary);
+  margin: 0 auto 25px;
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.profile-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.profile-parents {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.profile-parents span {
+  color: var(--secondary-dark);
+  font-weight: 500;
+}
+
+/* ============================================
+   Event Details Section
+   ============================================ */
+.event-section {
+  background: var(--background-alt);
+}
+
+.event-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.event-card {
+  background: var(--text-white);
+  border-radius: var(--radius-lg);
+  padding: 30px 25px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.event-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--text-white);
+}
+
+.event-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.event-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.event-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.event-info-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--text-white);
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-maps:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-maps svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ============================================
+   Gallery Section
+   ============================================ */
+.gallery-section {
+  background: var(--background);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gallery Modal */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.gallery-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-modal img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: var(--radius-md);
+}
+
+.gallery-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.gallery-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   RSVP Section
+   ============================================ */
+.rsvp-section {
+  background: linear-gradient(180deg, var(--background) 0%, var(--background-alt) 100%);
+}
+
+.rsvp-form {
+  background: var(--text-white);
+  border-radius: var(--radius-lg);
+  padding: 30px 25px;
+  box-shadow: var(--shadow-medium);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e8e8e8;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition-fast);
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  background: var(--text-white);
+  outline: none;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.attendance-options {
+  display: flex;
+  gap: 10px;
+}
+
+.attendance-option {
+  flex: 1;
+  position: relative;
+}
+
+.attendance-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.attendance-option label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border: 2px solid #e8e8e8;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.attendance-option input:checked+label {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--text-white);
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   Wishes Section
+   ============================================ */
+.wishes-section {
+  background: var(--background-alt);
+}
+
+.wishes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.wishes-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.wishes-list::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  border-radius: 2px;
+}
+
+.wishes-list::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.wish-item {
+  background: var(--text-white);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.wish-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.wish-name {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.wish-attendance {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.wish-attendance.not-attending {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.wish-message {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.wish-time {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+.no-wishes {
+  text-align: center;
+  color: var(--text-light);
+  padding: 40px 20px;
+}
+
+/* ============================================
+   Digital Envelope Section
+   ============================================ */
+.envelope-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--text-white);
+  text-align: center;
+}
+
+.envelope-section .section-title {
+  color: var(--text-white);
+}
+
+.envelope-section .section-title::after {
+  background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+}
+
+.envelope-intro {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.bank-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bank-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 25px 20px;
+}
+
+.bank-name {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.bank-number {
+  font-family: 'Courier New', monospace;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.bank-holder {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.btn-copy:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-copy.copied {
+  background: var(--secondary);
+  color: var(--primary-dark);
+}
+
+.btn-copy svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================
+   Footer Section
+   ============================================ */
+.footer {
+  background: var(--primary-dark);
+  color: var(--text-white);
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.footer-message {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-names {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 30px;
+}
+
+.footer-credit {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   Floating Music Player
+   ============================================ */
+.music-player {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-normal);
+}
+
+.music-player:hover {
+  transform: scale(1.1);
+}
+
+.music-player svg {
+  width: 24px;
+  height: 24px;
+  color: var(--primary-dark);
+}
+
+.music-player.playing {
+  animation: musicPulse 1s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+  }
+}
+
+/* ============================================
+   Scroll Animations
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   Toast Notifications
+   ============================================ */
+.toast {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--primary);
+  color: var(--text-white);
+  padding: 15px 25px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-medium);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--text-white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (min-width: 768px) {
+  :root {
+    --section-padding: 100px 20px;
+    --container-max: 600px;
+  }
+
+  .cover-title {
+    font-size: 3rem;
+  }
+
+  .cover-child-name {
+    font-size: 2.5rem;
+  }
+
+  .hero-name {
+    font-size: 3rem;
+  }
+
+  .countdown-item {
+    padding: 20px 30px;
+    min-width: 90px;
+  }
+
+  .countdown-value {
+    font-size: 2.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   ISLAMIC ANIMATED GRAPHICS
+   ============================================ */
+
+/* Floating Islamic Particles */
+.islamic-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.islamic-particles .particle {
+  position: absolute;
+  color: var(--secondary);
+  opacity: 0;
+  animation: floatParticle 8s ease-in-out infinite;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes floatParticle {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+
+/* Corner Ornaments */
+.corner-ornament {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.corner-ornament.top-left {
+  top: 0;
+  left: 0;
+}
+
+.corner-ornament.top-right {
+  top: 0;
+  right: 0;
+}
+
+.corner-ornament.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.corner-ornament.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.ornament-path {
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+.ornament-path.delay-1 {
+  animation-delay: 2s;
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Crescent Moon & Stars */
+.crescent-decoration {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  z-index: 1;
+}
+
+.crescent-moon {
+  width: 60px;
+  height: 60px;
+  animation: gentleFloat 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+}
+
+@keyframes gentleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+  }
+}
+
+.floating-stars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.floating-stars .star {
+  position: absolute;
+  color: var(--secondary);
+  font-size: 0.9rem;
+  animation: twinkle 2s ease-in-out infinite;
+  animation-delay: var(--delay);
+  transform: translate(var(--x), var(--y));
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(var(--x), var(--y)) scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(var(--x), var(--y)) scale(1.2);
+  }
+}
+
+/* Islamic Geometric Ornament */
+.islamic-ornament {
+  margin-bottom: 25px;
+}
+
+.geometric-pattern {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.rotate-slow {
+  animation: rotateSlow 20s linear infinite;
+  transform-origin: center center;
+}
+
+.rotate-reverse {
+  animation: rotateReverse 15s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Section Dividers with Islamic Motif */
+.islamic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px auto;
+  max-width: 300px;
+}
+
+.islamic-divider::before,
+.islamic-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+}
+
+.islamic-divider svg {
+  width: 30px;
+  height: 30px;
+  color: var(--secondary);
+  animation: rotateSlow 10s linear infinite;
+}
+
+/* Arabesque Pattern Background for Sections */
+.arabesque-bg {
+  position: relative;
+}
+
+.arabesque-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a5f' fill-opacity='0.03'%3E%3Cpath d='M40 0C17.909 0 0 17.909 0 40s17.909 40 40 40 40-17.909 40-40S62.091 0 40 0zm0 10c16.569 0 30 13.431 30 30 0 16.569-13.431 30-30 30-16.569 0-30-13.431-30-30 0-16.569 13.431-30 30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Elegant Border Frame */
+.elegant-frame {
+  position: relative;
+  padding: 30px;
+}
+
+.elegant-frame::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid var(--secondary);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Bismillah Arabic Title Styling */
+.cover-title {
+  font-family: 'Amiri', var(--font-arabic), serif;
+  font-size: 2.8rem;
+  line-height: 1.5;
+}
+
+/* Hero Section Islamic Decorations */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Quote Section Enhanced */
+.quote-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-section::before {
+  content: '❝';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 4rem;
+  color: var(--secondary);
+  opacity: 0.1;
+  font-family: serif;
+}
+
+.quote-section::after {
+  content: '❞';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 4rem;
+  color: var(--secondary);
+  opacity: 0.1;
+  font-family: serif;
+}
+
+/* Lantern Animation for Envelope Section */
+.envelope-section::before {
+  content: '🏮';
+  position: absolute;
+  top: -20px;
+  left: 10%;
+  font-size: 3rem;
+  animation: swingLantern 3s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+.envelope-section::after {
+  content: '🏮';
+  position: absolute;
+  top: -20px;
+  right: 10%;
+  font-size: 3rem;
+  animation: swingLantern 3s ease-in-out infinite 0.5s;
+  opacity: 0.3;
+}
+
+@keyframes swingLantern {
+
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Sparkle Effect on Buttons */
+.btn-open::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Card Hover Glow Effect */
+.event-card,
+.profile-card,
+.rsvp-form {
+  transition: all 0.3s ease;
+}
+
+.event-card:hover,
+.profile-card:hover {
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15), var(--shadow-medium);
+}
+
+/* Animated Border for Photo */
+.hero-photo,
+.profile-photo {
+  position: relative;
+  animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* Responsive Adjustments for Islamic Graphics */
+@media (max-width: 480px) {
+  .corner-ornament {
+    width: 80px;
+    height: 80px;
+  }
+
+  .crescent-decoration {
+    top: 10%;
+    right: 5%;
+  }
+
+  .crescent-moon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .geometric-pattern {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cover-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* ============================================
+   CONTENT SECTIONS ISLAMIC DECORATIONS
+   ============================================ */
+
+/* Hero Section Enhancements */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-corner-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.corner-star {
+  position: absolute;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  opacity: 0.6;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.corner-star.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.corner-star.top-right {
+  top: 20px;
+  right: 20px;
+  animation-delay: 0.5s;
+}
+
+.corner-star.bottom-left {
+  bottom: 120px;
+  left: 20px;
+  animation-delay: 1s;
+}
+
+.corner-star.bottom-right {
+  bottom: 120px;
+  right: 20px;
+  animation-delay: 1.5s;
+}
+
+/* Mosque Silhouette */
+.mosque-silhouette {
+  width: 200px;
+  height: 60px;
+  margin: 0 auto 20px;
+  opacity: 0.8;
+}
+
+/* Hero Labels */
+.hero-label {
+  font-family: var(--font-arabic);
+  font-size: 1.2rem;
+  color: var(--secondary);
+  margin-bottom: 5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-sublabel {
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+}
+
+/* Photo Frame with Islamic Border */
+.photo-frame {
+  position: relative;
+  display: inline-block;
+  padding: 8px;
+  margin-bottom: 25px;
+}
+
+.photo-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--secondary);
+  border-radius: 50%;
+  animation: rotateSlow 30s linear infinite;
+  background: repeating-conic-gradient(from 0deg,
+      transparent 0deg 10deg,
+      rgba(212, 175, 55, 0.1) 10deg 20deg);
+}
+
+.photo-frame .hero-photo {
+  position: relative;
+  z-index: 1;
+}
+
+/* Islamic Divider Small */
+.islamic-divider-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  color: var(--secondary);
+}
+
+.islamic-divider-small span {
+  font-size: 1rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.islamic-divider-small .divider-pattern {
+  width: 50px;
+  height: 20px;
+}
+
+/* Wave Divider */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 3;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Quote Section Enhancements */
+.quote-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.quote-corner {
+  position: absolute;
+  color: var(--secondary);
+  font-size: 2rem;
+  opacity: 0.2;
+  animation: rotateSlow 20s linear infinite;
+}
+
+.quote-corner.tl {
+  top: 20px;
+  left: 20px;
+}
+
+.quote-corner.tr {
+  top: 20px;
+  right: 20px;
+  animation-direction: reverse;
+}
+
+.quote-corner.bl {
+  bottom: 20px;
+  left: 20px;
+  animation-direction: reverse;
+}
+
+.quote-corner.br {
+  bottom: 20px;
+  right: 20px;
+}
+
+.ornamental-top,
+.ornamental-bottom {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.ornament-svg {
+  width: 120px;
+  height: 30px;
+}
+
+.quote-divider {
+  text-align: center;
+  margin: 20px 0;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+/* Section Headers with Ornaments */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.section-header .section-title {
+  margin-bottom: 0;
+}
+
+.section-header .section-title::after {
+  display: none;
+}
+
+.header-ornament {
+  color: var(--secondary);
+  font-size: 1.5rem;
+  animation: rotateSlow 10s linear infinite;
+}
+
+/* Profile Card Enhancements */
+.profile-card.elegant-frame {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.card-corner {
+  position: absolute;
+  color: var(--secondary);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.card-corner.tl {
+  top: 10px;
+  left: 10px;
+}
+
+.card-corner.tr {
+  top: 10px;
+  right: 10px;
+}
+
+.card-corner.bl {
+  bottom: 10px;
+  left: 10px;
+}
+
+.card-corner.br {
+  bottom: 10px;
+  right: 10px;
+}
+
+.profile-photo-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.photo-ornament {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px dashed var(--secondary);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: rotateSlow 20s linear infinite;
+}
+
+.profile-divider {
+  color: var(--secondary);
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+.parent-separator {
+  color: var(--secondary);
+  margin: 0 10px;
+  font-size: 0.8rem;
+}
+
+/* Section Decorative Elements */
+.section-top-border {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  margin-bottom: 0;
+}
+
+.section-bottom-ornament {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+/* Wishes Section */
+.wishes-dua {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+/* Footer Enhancements */
+.footer {
+  background: linear-gradient(180deg, var(--background-alt) 0%, var(--primary-dark) 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-ornament {
+  margin-bottom: 20px;
+}
+
+.footer-pattern {
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.footer-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.8rem;
+  color: var(--secondary);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-message {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+
+.footer-names {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.footer-names span {
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+.footer-stars {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+
+.footer-stars span {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.footer-stars span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.footer-stars span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.footer-credit {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Gallery Section Enhancements */
+.gallery-section {
+  position: relative;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(212, 175, 55, 0.1) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* RSVP Section Enhancements */
+.rsvp-form {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.rsvp-form::before {
+  content: '✵';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-white);
+  padding: 0 15px;
+  color: var(--secondary);
+  font-size: 1.2rem;
+}
+
+/* Event Cards Enhancements */
+.event-card {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.event-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+  opacity: 0.5;
+}
+
+/* Responsive for Content Decorations */
+@media (max-width: 480px) {
+  .mosque-silhouette {
+    width: 150px;
+    height: 45px;
+  }
+
+  .hero-label {
+    font-size: 1rem;
+  }
+
+  .quote-corner {
+    font-size: 1.5rem;
+  }
+
+  .footer-arabic {
+    font-size: 1.4rem;
+  }
+
+  .section-header {
+    gap: 10px;
+  }
+
+  .header-ornament {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================
+   GLOBAL FLOATING ISLAMIC STARS
+   ============================================ */
+.global-islamic-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.global-islamic-stars .floating-star {
+  position: absolute;
+  color: var(--secondary);
+  opacity: 0;
+  animation: floatingStar 15s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  font-size: 1rem;
+}
+
+@keyframes floatingStar {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+
+  5% {
+    opacity: 0.7;
+  }
+
+  95% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) rotate(360deg);
+  }
+}
+
+/* ============================================
+   HANGING LANTERNS
+   ============================================ */
+.hanging-lanterns {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+
+.lantern {
+  position: absolute;
+  top: -10px;
+  animation: swayLantern 4s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.lantern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, #d4af37, #8b6914);
+}
+
+.lantern-top {
+  width: 25px;
+  height: 8px;
+  background: linear-gradient(135deg, #d4af37, #8b6914);
+  margin: 20px auto 0;
+  border-radius: 3px 3px 0 0;
+}
+
+.lantern-body {
+  width: 35px;
+  height: 50px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #d4af37 0%, #f0d78c 50%, #d4af37 100%);
+  border-radius: 5px 5px 10px 10px;
+  position: relative;
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.4),
+    inset 0 0 15px rgba(255, 200, 100, 0.3);
+}
+
+.lantern-body::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 10px;
+  background: repeating-linear-gradient(to bottom,
+      transparent 0px,
+      transparent 8px,
+      rgba(139, 105, 20, 0.3) 8px,
+      rgba(139, 105, 20, 0.3) 10px);
+  border-radius: 3px;
+}
+
+.lantern-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 30px;
+  background: radial-gradient(ellipse, rgba(255, 200, 100, 0.8) 0%, transparent 70%);
+  animation: lanternGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes lanternGlow {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.lantern-bottom {
+  width: 15px;
+  height: 10px;
+  background: linear-gradient(135deg, #d4af37, #8b6914);
+  margin: 0 auto;
+  border-radius: 0 0 50% 50%;
+}
+
+.lantern-bottom::after {
+  content: '✦';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d4af37;
+  font-size: 0.6rem;
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+/* Lantern Positions & Timing */
+.lantern-1 {
+  left: 5%;
+  animation-delay: 0s;
+  transform: scale(0.8);
+}
+
+.lantern-2 {
+  left: 25%;
+  animation-delay: 0.5s;
+  transform: scale(0.9);
+}
+
+.lantern-3 {
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  animation-delay: 1s;
+}
+
+.lantern-4 {
+  right: 25%;
+  left: auto;
+  animation-delay: 1.5s;
+  transform: scale(0.9);
+}
+
+.lantern-5 {
+  right: 5%;
+  left: auto;
+  animation-delay: 2s;
+  transform: scale(0.8);
+}
+
+@keyframes swayLantern {
+
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Lantern Stars floating around */
+.lantern::after {
+  content: '✧';
+  position: absolute;
+  top: 80px;
+  left: -10px;
+  color: #d4af37;
+  font-size: 0.5rem;
+  animation: floatAround 3s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatAround {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(5px, -10px);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive - Hide some lanterns on mobile */
+@media (max-width: 600px) {
+
+  .lantern-2,
+  .lantern-4 {
+    display: none;
+  }
+
+  .lantern-body {
+    width: 28px;
+    height: 40px;
+  }
+
+  .lantern-top {
+    width: 20px;
+    height: 6px;
+  }
+
+  .global-islamic-stars .floating-star {
+    font-size: 0.8rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .lantern,
+  .lantern-glow,
+  .global-islamic-stars .floating-star {
+    animation: none;
+  }
+}

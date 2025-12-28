@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Undangan Khitanan</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚙️%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <!-- ============================================
+       LOGIN PAGE
+       ============================================ -->
+    <div class="login-wrapper" id="loginPage">
+        <div class="login-card">
+            <div class="login-logo">🎉</div>
+            <h1 class="login-title">Admin Panel</h1>
+            <p class="login-subtitle">Undangan Khitanan</p>
+
+            <div class="login-error" id="loginError">
+                Password salah. Silakan coba lagi.
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="btn-login">Masuk</button>
+            </form>
+
+            <p style="margin-top: 20px; color: #6c757d; font-size: 0.85rem;">
+                Default password: <code>admin123</code>
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================
+       ADMIN DASHBOARD
+       ============================================ -->
+    <div class="admin-wrapper" id="adminDashboard" style="display: none;">
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" id="mobileToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">🎉</div>
+                <div class="sidebar-title">Admin Panel</div>
+                <div class="sidebar-subtitle">Undangan Khitanan</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-section="dashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </button>
+
+                <button class="nav-item" data-section="event">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Data Acara
+                </button>
+
+                <button class="nav-item" data-section="guests">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path>
+                    </svg>
+                    Daftar Tamu
+                </button>
+
+                <button class="nav-item" data-section="rsvp">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    RSVP & Ucapan
+                </button>
+
+                <button class="nav-item" data-section="gallery">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    Galeri Foto
+                </button>
+
+                <button class="nav-item" data-section="envelope">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="M12 12h.01"></path>
+                        <path d="M17 8h.01"></path>
+                        <path d="M7 8h.01"></path>
+                    </svg>
+                    Amplop Digital
+                </button>
+
+                <div class="nav-divider"></div>
+
+                <button class="nav-item" data-section="settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z">
+                        </path>
+                    </svg>
+                    Pengaturan
+                </button>
+
+                <button class="nav-item" id="btnLogout">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- DASHBOARD SECTION -->
+            <section class="admin-section active" id="section-dashboard">
+                <div class="content-header">
+                    <h1 class="content-title">Dashboard</h1>
+                    <a href="index.html" target="_blank" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        Lihat Undangan
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary">👥</div>
+                        <div class="stat-info">
+                            <h3 id="statTotalGuests">0</h3>
+                            <p>Total Tamu</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon success">✅</div>
+                        <div class="stat-info">
+                            <h3 id="statAttending">0</h3>
+                            <p>Akan Hadir</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon danger">❌</div>
+                        <div class="stat-info">
+                            <h3 id="statNotAttending">0</h3>
+                            <p>Tidak Hadir</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon warning">💬</div>
+                        <div class="stat-info">
+                            <h3 id="statWishes">0</h3>
+                            <p>Ucapan Masuk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🔗 Generate Link Undangan</h3>
+                    </div>
+                    <div class="card-body">
+                        <p style="color: var(--admin-text-light); margin-bottom: 15px;">
+                            Buat link undangan personal untuk tamu Anda
+                        </p>
+                        <div class="guest-link-input">
+                            <input type="text" id="quickGuestName" placeholder="Nama Tamu (contoh: Bapak Ahmad)">
+                            <button class="btn btn-primary" onclick="generateQuickLink()">Generate Link</button>
+                        </div>
+                        <div id="quickLinkResult" style="display: none; margin-top: 15px;">
+                            <div class="preview-link">
+                                <input type="text" id="quickLinkOutput" readonly>
+                                <button class="btn btn-secondary btn-sm" onclick="copyQuickLink()">📋 Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Wishes -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">💬 Ucapan Terbaru</h3>
+                        <button class="btn btn-secondary btn-sm" data-section="rsvp">Lihat Semua</button>
+                    </div>
+                    <div class="card-body">
+                        <div id="recentWishes">
+                            <div class="empty-state">
+                                <p>Belum ada ucapan masuk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EVENT SECTION -->
+            <section class="admin-section" id="section-event">
+                <div class="content-header">
+                    <h1 class="content-title">Data Acara</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">👦 Data Anak</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="childName">Nama Lengkap Anak</label>
+                                <input type="text" id="childName" placeholder="Muhammad Arsyad">
+                            </div>
+                            <div class="form-group">
+                                <label for="childNickname">Nama Panggilan</label>
+                                <input type="text" id="childNickname" placeholder="Arsyad">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fatherNameInput">Nama Ayah</label>
+                                <input type="text" id="fatherNameInput" placeholder="Bapak Ahmad">
+                            </div>
+                            <div class="form-group">
+                                <label for="motherNameInput">Nama Ibu</label>
+                                <input type="text" id="motherNameInput" placeholder="Ibu Fatimah">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOTO PROFIL / HERO SECTION -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">📸 Foto Profil Anak (Hero)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p style="color: var(--admin-text-light); margin-bottom: 15px;">
+                            Foto ini akan ditampilkan di halaman utama (hero section) dan profil anak.
+                        </p>
+
+                        <!-- Current Photo Preview -->
+                        <div class="hero-photo-preview" id="heroPhotoPreview">
+                            <img id="heroPhotoPreviewImg" src="" alt="Foto Profil" style="display: none;">
+                            <div class="no-photo-placeholder" id="noPhotoPlaceholder">
+                                <span>👦</span>
+                                <p>Belum ada foto</p>
+                            </div>
+                        </div>
+
+                        <div class="upload-area hero-upload"
+                            onclick="document.getElementById('heroPhotoUpload').click()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Klik untuk upload foto profil anak</p>
+                            <p style="font-size: 0.8rem;">PNG, JPG, JPEG (max 2MB)</p>
+                            <input type="file" id="heroPhotoUpload" accept="image/*"
+                                onchange="handleHeroPhotoUpload(this)">
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="heroPhotoUrl">Atau gunakan URL Gambar</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="url" id="heroPhotoUrl" placeholder="https://example.com/foto-anak.jpg"
+                                    style="flex: 1;">
+                                <button class="btn btn-primary btn-sm" onclick="setHeroPhotoUrl()">Gunakan URL</button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-danger btn-sm" onclick="removeHeroPhoto()" style="margin-top: 10px;">
+                            🗑️ Hapus Foto Profil
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">📖 Ayat / Doa Pembuka</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="quoteArabicInput">Ayat Arab</label>
+                            <textarea id="quoteArabicInput" dir="rtl" style="font-size: 1.2rem;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteTranslationInput">Terjemahan</label>
+                            <textarea id="quoteTranslationInput"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🏠 Prosesi Khitan</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="khitanDateInput">Tanggal</label>
+                                <input type="date" id="khitanDateInput">
+                            </div>
+                            <div class="form-group">
+                                <label for="khitanTimeStart">Waktu Mulai</label>
+                                <input type="time" id="khitanTimeStart">
+                            </div>
+                            <div class="form-group">
+                                <label for="khitanTimeEnd">Waktu Selesai</label>
+                                <input type="time" id="khitanTimeEnd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="khitanLocationInput">Nama Tempat</label>
+                            <input type="text" id="khitanLocationInput" placeholder="Rumah Keluarga">
+                        </div>
+                        <div class="form-group">
+                            <label for="khitanAddressInput">Alamat Lengkap</label>
+                            <textarea id="khitanAddressInput" placeholder="Jl. Contoh No. 123, Kota"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="khitanMapsInput">Link Google Maps</label>
+                            <input type="url" id="khitanMapsInput" placeholder="https://maps.google.com/...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🎉 Syukuran</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="syukuranDateInput">Tanggal</label>
+                                <input type="date" id="syukuranDateInput">
+                            </div>
+                            <div class="form-group">
+                                <label for="syukuranTimeStart">Waktu Mulai</label>
+                                <input type="time" id="syukuranTimeStart">
+                            </div>
+                            <div class="form-group">
+                                <label for="syukuranTimeEnd">Waktu Selesai</label>
+                                <input type="time" id="syukuranTimeEnd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="syukuranLocationInput">Nama Tempat</label>
+                            <input type="text" id="syukuranLocationInput" placeholder="Rumah Keluarga">
+                        </div>
+                        <div class="form-group">
+                            <label for="syukuranAddressInput">Alamat Lengkap</label>
+                            <textarea id="syukuranAddressInput" placeholder="Jl. Contoh No. 123, Kota"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="syukuranMapsInput">Link Google Maps</label>
+                            <input type="url" id="syukuranMapsInput" placeholder="https://maps.google.com/...">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="saveEventData()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"></path>
+                        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                        <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    Simpan Data Acara
+                </button>
+            </section>
+
+            <!-- GUESTS SECTION -->
+            <section class="admin-section" id="section-guests">
+                <div class="content-header">
+                    <h1 class="content-title">Daftar Tamu</h1>
+                    <button class="btn btn-primary" onclick="openGuestModal()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Tambah Tamu
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Tamu</th>
+                                        <th>Link Personal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="guestsTableBody">
+                                    <tr>
+                                        <td colspan="4" class="empty-state">
+                                            <p>Belum ada data tamu</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RSVP SECTION -->
+            <section class="admin-section" id="section-rsvp">
+                <div class="content-header">
+                    <h1 class="content-title">RSVP & Ucapan</h1>
+                    <button class="btn btn-danger btn-sm" onclick="clearAllWishes()">🗑️ Hapus Semua</button>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Kehadiran</th>
+                                        <th>Jumlah</th>
+                                        <th>Ucapan</th>
+                                        <th>Waktu</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rsvpTableBody">
+                                    <tr>
+                                        <td colspan="6" class="empty-state">
+                                            <p>Belum ada RSVP masuk</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GALLERY SECTION -->
+            <section class="admin-section" id="section-gallery">
+                <div class="content-header">
+                    <h1 class="content-title">Galeri Foto</h1>
+                </div>
+
+                <div class="alert alert-info"
+                    style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                    <strong>💡 Info:</strong> Foto galeri adalah kumpulan foto yang ditampilkan di section "Galeri Foto"
+                    undangan.
+                    Untuk foto profil anak yang muncul di hero section, gunakan menu <strong>Data Acara → Foto Profil
+                        Anak</strong>.
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🖼️ Upload Foto Galeri (Multiple)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p style="color: var(--admin-text-light); margin-bottom: 15px;">
+                            Upload beberapa foto sekaligus untuk ditampilkan di galeri undangan.
+                        </p>
+                        <div class="upload-area" onclick="document.getElementById('galleryUpload').click()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Klik untuk upload foto galeri (bisa pilih banyak)</p>
+                            <p style="font-size: 0.8rem;">PNG, JPG, JPEG (max 2MB per foto)</p>
+                            <input type="file" id="galleryUpload" accept="image/*" multiple
+                                onchange="handleGalleryUpload(this)">
+                        </div>
+
+                        <div class="gallery-admin-grid" id="galleryAdminGrid">
+                            <!-- Gallery items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🔗 Gunakan URL Gambar</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="galleryUrlInput">URL Gambar</label>
+                            <input type="url" id="galleryUrlInput" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <button class="btn btn-primary btn-sm" onclick="addGalleryUrl()">Tambah Gambar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ENVELOPE SECTION -->
+            <section class="admin-section" id="section-envelope">
+                <div class="content-header">
+                    <h1 class="content-title">Amplop Digital</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">💳 Rekening Bank 1</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bank1Name">Nama Bank</label>
+                                <input type="text" id="bank1Name" placeholder="Bank BCA">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank1Number">Nomor Rekening</label>
+                                <input type="text" id="bank1Number" placeholder="1234567890">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank1Holder">Atas Nama</label>
+                                <input type="text" id="bank1Holder" placeholder="Ahmad">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">💳 Rekening Bank 2</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bank2Name">Nama Bank</label>
+                                <input type="text" id="bank2Name" placeholder="Bank Mandiri">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank2Number">Nomor Rekening</label>
+                                <input type="text" id="bank2Number" placeholder="0987654321">
+                            </div>
+                            <div class="form-group">
+                                <label for="bank2Holder">Atas Nama</label>
+                                <input type="text" id="bank2Holder" placeholder="Fatimah">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="saveEnvelopeData()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"></path>
+                        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                        <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    Simpan Data Amplop
+                </button>
+            </section>
+
+            <!-- SETTINGS SECTION -->
+            <section class="admin-section" id="section-settings">
+                <div class="content-header">
+                    <h1 class="content-title">Pengaturan</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🔐 Ubah Password Admin</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="newPassword">Password Baru</label>
+                            <input type="password" id="newPassword" placeholder="Masukkan password baru">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Konfirmasi Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Konfirmasi password baru">
+                        </div>
+                        <button class="btn btn-primary" onclick="changePassword()">Ubah Password</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">🎵 Musik Background</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="musicUrl">URL File Musik (MP3)</label>
+                            <input type="url" id="musicUrl" placeholder="https://example.com/music.mp3">
+                            <p class="form-hint">Masukkan URL file MP3 untuk musik background undangan</p>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="musicAutoplay" checked> Autoplay saat undangan dibuka
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveMusicSettings()">Simpan Pengaturan Musik</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">📤 Export Data</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Important Alert -->
+                        <div class="alert alert-warning"
+                            style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                            <strong>⚠️ PENTING untuk Hosting:</strong><br>
+                            Data yang Anda isi disimpan di browser lokal. Agar data tampil di hosting untuk semua
+                            pengunjung,
+                            klik <strong>"Download config.json"</strong> lalu upload file tersebut ke folder
+                            <code>data/</code> di hosting Anda.
+                        </div>
+
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <!-- Export config.json for hosting -->
+                            <button class="btn btn-primary" onclick="exportConfigJson()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Download config.json (untuk Hosting)
+                            </button>
+
+                            <!-- Export all data -->
+                            <button class="btn btn-secondary" onclick="exportAllData()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Export Semua Data (Backup)
+                            </button>
+                        </div>
+
+                        <p style="margin-top: 15px; color: var(--admin-text-light); font-size: 0.9rem;">
+                            📁 <strong>config.json</strong>: Upload ke <code>data/config.json</code> di hosting<br>
+                            💾 <strong>Export Semua</strong>: Backup lengkap termasuk tamu & ucapan
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Guest Modal -->
+    <div class="modal-overlay" id="guestModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Tambah Tamu</h3>
+                <button class="modal-close" onclick="closeGuestModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newGuestName">Nama Tamu</label>
+                    <input type="text" id="newGuestName" placeholder="Bapak Ahmad">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeGuestModal()">Batal</button>
+                <button class="btn btn-primary" onclick="addGuest()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="admin-toast" id="adminToast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

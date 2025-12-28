@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Undangan Khitanan - Anda diundang untuk menghadiri acara khitanan putra kami">
+  <meta name="theme-color" content="#1e3a5f">
+
+  <title>Undangan Khitanan</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎉%3C/text%3E%3C/svg%3E">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Audio Background -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ============================================
+       COVER / OPENING SCREEN
+       ============================================ -->
+  <div class="cover" id="cover">
+    <!-- Floating Islamic Particles -->
+    <div class="islamic-particles" id="islamicParticles"></div>
+
+    <!-- Animated Corner Ornaments -->
+    <svg class="corner-ornament top-left" viewBox="0 0 150 150" fill="none">
+      <path class="ornament-path" d="M0 0 L150 0 L150 20 C80 20 20 80 20 150 L0 150 Z" fill="url(#goldGradient)"
+        opacity="0.3" />
+      <path class="ornament-path delay-1" d="M0 0 L120 0 L120 15 C60 15 15 60 15 120 L0 120 Z" fill="url(#goldGradient)"
+        opacity="0.2" />
+      <defs>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#d4af37" />
+          <stop offset="100%" style="stop-color:#f0d78c" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <svg class="corner-ornament top-right" viewBox="0 0 150 150" fill="none">
+      <path class="ornament-path" d="M150 0 L0 0 L0 20 C70 20 130 80 130 150 L150 150 Z" fill="url(#goldGradient2)"
+        opacity="0.3" />
+      <path class="ornament-path delay-1" d="M150 0 L30 0 L30 15 C90 15 135 60 135 120 L150 120 Z"
+        fill="url(#goldGradient2)" opacity="0.2" />
+      <defs>
+        <linearGradient id="goldGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#d4af37" />
+          <stop offset="100%" style="stop-color:#f0d78c" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <svg class="corner-ornament bottom-left" viewBox="0 0 150 150" fill="none">
+      <path class="ornament-path" d="M0 150 L150 150 L150 130 C80 130 20 70 20 0 L0 0 Z" fill="url(#goldGradient)"
+        opacity="0.3" />
+    </svg>
+    <svg class="corner-ornament bottom-right" viewBox="0 0 150 150" fill="none">
+      <path class="ornament-path" d="M150 150 L0 150 L0 130 C70 130 130 70 130 0 L150 0 Z" fill="url(#goldGradient2)"
+        opacity="0.3" />
+    </svg>
+
+    <!-- Crescent Moon & Stars -->
+    <div class="crescent-decoration">
+      <svg class="crescent-moon" viewBox="0 0 100 100" fill="none">
+        <path d="M50 5C25 5 5 25 5 50C5 75 25 95 50 95C35 85 30 65 35 50C40 35 55 25 70 25C60 10 50 5 50 5Z"
+          fill="#d4af37" opacity="0.8" />
+      </svg>
+      <div class="floating-stars">
+        <span class="star" style="--delay: 0s; --x: 20px; --y: -30px;">✦</span>
+        <span class="star" style="--delay: 0.5s; --x: -25px; --y: -50px;">✧</span>
+        <span class="star" style="--delay: 1s; --x: 40px; --y: -20px;">✦</span>
+        <span class="star" style="--delay: 1.5s; --x: -40px; --y: -40px;">✧</span>
+        <span class="star" style="--delay: 2s; --x: 30px; --y: -60px;">✦</span>
+      </div>
+    </div>
+
+    <div class="cover-content">
+      <!-- Islamic Geometric Ornament -->
+      <div class="islamic-ornament">
+        <svg viewBox="0 0 200 200" fill="none" class="geometric-pattern">
+          <g class="rotate-slow">
+            <!-- 8-pointed star (Rub el Hizb) -->
+            <polygon points="100,10 115,85 190,100 115,115 100,190 85,115 10,100 85,85" fill="none" stroke="#d4af37"
+              stroke-width="1.5" opacity="0.6" />
+            <polygon points="100,30 110,85 170,100 110,115 100,170 90,115 30,100 90,85" fill="none" stroke="#d4af37"
+              stroke-width="1" opacity="0.4" />
+          </g>
+          <g class="rotate-reverse">
+            <polygon points="100,20 120,80 180,100 120,120 100,180 80,120 20,100 80,80" fill="none" stroke="#f0d78c"
+              stroke-width="1" opacity="0.3" transform="rotate(22.5 100 100)" />
+          </g>
+          <circle cx="100" cy="100" r="25" fill="none" stroke="#d4af37" stroke-width="1.5" opacity="0.5" />
+          <circle cx="100" cy="100" r="35" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.3" />
+        </svg>
+      </div>
+
+      <p class="cover-label">Undangan Khitanan</p>
+      <h1 class="cover-title">﷽</h1>
+      <p class="cover-child-name" id="coverChildName">Muhammad Arsyad</p>
+
+      <p class="cover-guest">Kepada Yth.</p>
+      <p class="cover-guest-name" id="guestName">Bapak/Ibu/Saudara/i</p>
+
+      <button class="btn-open" id="btnOpen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Buka Undangan
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main class="main-content" id="mainContent">
+
+    <!-- Global Floating Islamic Stars -->
+    <div class="global-islamic-stars" id="globalIslamicStars"></div>
+
+    <!-- Hanging Lanterns -->
+    <div class="hanging-lanterns">
+      <div class="lantern lantern-1">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+          <div class="lantern-glow"></div>
+        </div>
+        <div class="lantern-bottom"></div>
+      </div>
+      <div class="lantern lantern-2">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+          <div class="lantern-glow"></div>
+        </div>
+        <div class="lantern-bottom"></div>
+      </div>
+      <div class="lantern lantern-4">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+          <div class="lantern-glow"></div>
+        </div>
+        <div class="lantern-bottom"></div>
+      </div>
+      <div class="lantern lantern-5">
+        <div class="lantern-top"></div>
+        <div class="lantern-body">
+          <div class="lantern-glow"></div>
+        </div>
+        <div class="lantern-bottom"></div>
+      </div>
+    </div>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <!-- Floating Islamic Particles for Hero -->
+      <div class="hero-particles" id="heroParticles"></div>
+
+      <!-- Decorative Corner Stars -->
+      <div class="hero-corner-stars">
+        <span class="corner-star top-left">✦</span>
+        <span class="corner-star top-right">✦</span>
+        <span class="corner-star bottom-left">✧</span>
+        <span class="corner-star bottom-right">✧</span>
+      </div>
+
+      <div class="hero-content">
+        <!-- Mosque Dome Silhouette -->
+        <svg class="mosque-silhouette reveal" viewBox="0 0 200 60" fill="none">
+          <path
+            d="M100 5C100 5 85 20 85 30H70C70 20 60 15 50 25H40V60H160V25H150C140 15 130 20 130 30H115C115 20 100 5 100 5Z"
+            fill="rgba(212,175,55,0.2)" stroke="rgba(212,175,55,0.4)" stroke-width="1" />
+          <circle cx="100" cy="0" r="3" fill="#d4af37" />
+        </svg>
+
+        <p class="hero-label reveal">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p class="hero-sublabel reveal">Khitanan Putra Kami</p>
+
+        <!-- Photo Frame with Islamic Border -->
+        <div class="photo-frame reveal">
+          <div class="photo-border"></div>
+          <img src="assets/images/child.jpg" alt="Foto Anak" class="hero-photo" id="heroPhoto"
+            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 200 200%27%3E%3Crect fill=%27%231e3a5f%27 width=%27200%27 height=%27200%27/%3E%3Ctext x=%27100%27 y=%27110%27 text-anchor=%27middle%27 fill=%27%23d4af37%27 font-size=%2760%27%3E👦%3C/text%3E%3C/svg%3E'">
+        </div>
+
+        <h1 class="hero-name reveal" id="heroName">Muhammad Arsyad</h1>
+
+        <p class="hero-date reveal" id="heroDate">Minggu, 15 Januari 2025</p>
+
+        <!-- Islamic Divider -->
+        <div class="islamic-divider-small reveal">
+          <span>✦</span>
+          <svg viewBox="0 0 50 20" class="divider-pattern">
+            <path d="M0 10 Q12.5 0 25 10 Q37.5 20 50 10" stroke="#d4af37" fill="none" stroke-width="1" />
+          </svg>
+          <span>✦</span>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown reveal" id="countdown">
+          <div class="countdown-item">
+            <span class="countdown-value" id="countDays">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countHours">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countMinutes">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countSeconds">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Islamic Wave Divider -->
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,120 L0,120 Z" fill="var(--background)" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- QUOTE SECTION -->
+    <section class="quote-section arabesque-bg" id="quote">
+      <!-- Decorative Corners -->
+      <div class="quote-corners">
+        <span class="quote-corner tl">❁</span>
+        <span class="quote-corner tr">❁</span>
+        <span class="quote-corner bl">❁</span>
+        <span class="quote-corner br">❁</span>
+      </div>
+
+      <div class="container">
+        <!-- Ornamental Top -->
+        <div class="ornamental-top reveal">
+          <svg viewBox="0 0 100 30" class="ornament-svg">
+            <path d="M0 25 Q25 5 50 25 Q75 5 100 25" stroke="#d4af37" fill="none" stroke-width="1.5" />
+            <circle cx="50" cy="15" r="4" fill="#d4af37" />
+          </svg>
+        </div>
+
+        <p class="quote-arabic reveal" id="quoteArabic">
+          وَإِذْ قَالَ لُقْمَانُ لِابْنِهِ وَهُوَ يَعِظُهُ يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ
+        </p>
+
+        <!-- Decorative Line -->
+        <div class="quote-divider reveal">
+          <span>☪</span>
+        </div>
+
+        <p class="quote-translation reveal" id="quoteTranslation">
+          "Dan (ingatlah) ketika Luqman berkata kepada anaknya, di waktu ia memberi pelajaran kepadanya: 'Hai anakku,
+          janganlah kamu mempersekutukan Allah.'"
+          <br><br>— QS. Luqman: 13
+        </p>
+
+        <!-- Ornamental Bottom -->
+        <div class="ornamental-bottom reveal">
+          <svg viewBox="0 0 100 30" class="ornament-svg">
+            <path d="M0 5 Q25 25 50 5 Q75 25 100 5" stroke="#d4af37" fill="none" stroke-width="1.5" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFILE SECTION -->
+    <section class="profile-section" id="profile">
+      <div class="container">
+        <!-- Islamic Section Header -->
+        <div class="section-header reveal">
+          <span class="header-ornament">✵</span>
+          <h2 class="section-title">Profil Anak</h2>
+          <span class="header-ornament">✵</span>
+        </div>
+
+        <div class="profile-card elegant-frame reveal">
+          <!-- Corner Decorations -->
+          <span class="card-corner tl">◆</span>
+          <span class="card-corner tr">◆</span>
+          <span class="card-corner bl">◆</span>
+          <span class="card-corner br">◆</span>
+
+          <div class="profile-photo-wrapper">
+            <div class="photo-ornament"></div>
+            <img src="assets/images/child.jpg" alt="Foto Anak" class="profile-photo" id="profilePhoto"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 200 200%27%3E%3Crect fill=%27%231e3a5f%27 width=%27200%27 height=%27200%27/%3E%3Ctext x=%27100%27 y=%27110%27 text-anchor=%27middle%27 fill=%27%23d4af37%27 font-size=%2760%27%3E👦%3C/text%3E%3C/svg%3E'">
+          </div>
+
+          <h3 class="profile-name" id="profileName">Muhammad Arsyad</h3>
+
+          <div class="profile-divider">
+            <span>❋</span>
+          </div>
+
+          <p class="profile-label">Putra dari</p>
+          <p class="profile-parents">
+            <span id="fatherName">Bapak Ahmad</span>
+            <span class="parent-separator">♦</span>
+            <span id="motherName">Ibu Fatimah</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT DETAILS SECTION -->
+    <section class="event-section" id="event">
+      <div class="container">
+        <h2 class="section-title reveal">Waktu & Tempat</h2>
+
+        <div class="event-cards">
+          <!-- Prosesi Khitan -->
+          <div class="event-card reveal" id="eventKhitan">
+            <div class="event-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3 class="event-title">Prosesi Khitan</h3>
+            <div class="event-info">
+              <div class="event-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span id="khitanDate">Minggu, 15 Januari 2025</span>
+              </div>
+              <div class="event-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="khitanTime">08:00 - 10:00 WIB</span>
+              </div>
+              <div class="event-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span id="khitanLocation">Rumah Keluarga</span>
+              </div>
+              <div class="event-info-item">
+                <span id="khitanAddress" style="font-size: 0.85rem; color: var(--text-light);">Jl. Contoh No. 123,
+                  Kota</span>
+              </div>
+            </div>
+            <a href="#" class="btn-maps" id="khitanMaps" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              Lihat Lokasi
+            </a>
+          </div>
+
+          <!-- Syukuran -->
+          <div class="event-card reveal" id="eventSyukuran">
+            <div class="event-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="event-title">Syukuran</h3>
+            <div class="event-info">
+              <div class="event-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span id="syukuranDate">Minggu, 15 Januari 2025</span>
+              </div>
+              <div class="event-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="syukuranTime">11:00 - 14:00 WIB</span>
+              </div>
+              <div class="event-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span id="syukuranLocation">Rumah Keluarga</span>
+              </div>
+              <div class="event-info-item">
+                <span id="syukuranAddress" style="font-size: 0.85rem; color: var(--text-light);">Jl. Contoh No. 123,
+                  Kota</span>
+              </div>
+            </div>
+            <a href="#" class="btn-maps" id="syukuranMaps" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              Lihat Lokasi
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section" id="gallery">
+      <!-- Decorative Top Border -->
+      <div class="section-top-border"></div>
+
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="header-ornament">✵</span>
+          <h2 class="section-title">Galeri Foto</h2>
+          <span class="header-ornament">✵</span>
+        </div>
+
+        <div class="gallery-grid reveal" id="galleryGrid">
+          <!-- Gallery items will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Decorative Bottom -->
+      <div class="section-bottom-ornament">
+        <span>❈</span>
+      </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+      <span class="gallery-modal-close" id="galleryClose">&times;</span>
+      <img src="" alt="Gallery Image" id="galleryModalImg">
+    </div>
+
+    <!-- RSVP SECTION -->
+    <section class="rsvp-section" id="rsvp">
+      <div class="container">
+        <h2 class="section-title reveal">Konfirmasi Kehadiran</h2>
+
+        <form class="rsvp-form reveal" id="rsvpForm">
+          <div class="form-group">
+            <label for="rsvpName">Nama Lengkap</label>
+            <input type="text" id="rsvpName" name="name" placeholder="Masukkan nama Anda" required>
+          </div>
+
+          <div class="form-group">
+            <label>Konfirmasi Kehadiran</label>
+            <div class="attendance-options">
+              <div class="attendance-option">
+                <input type="radio" id="attendYes" name="attendance" value="hadir" required>
+                <label for="attendYes">✓ Hadir</label>
+              </div>
+              <div class="attendance-option">
+                <input type="radio" id="attendNo" name="attendance" value="tidak">
+                <label for="attendNo">✗ Tidak Hadir</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rsvpGuests">Jumlah Tamu</label>
+            <select id="rsvpGuests" name="guests">
+              <option value="1">1 Orang</option>
+              <option value="2">2 Orang</option>
+              <option value="3">3 Orang</option>
+              <option value="4">4 Orang</option>
+              <option value="5">5 Orang</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rsvpMessage">Ucapan & Doa</label>
+            <textarea id="rsvpMessage" name="message" placeholder="Tulis ucapan dan doa untuk anak kami..."
+              maxlength="500"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btnSubmit">
+            Kirim Konfirmasi
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- WISHES SECTION -->
+    <section class="wishes-section arabesque-bg" id="wishes">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="header-ornament">✵</span>
+          <h2 class="section-title">Ucapan & Doa</h2>
+          <span class="header-ornament">✵</span>
+        </div>
+
+        <p class="wishes-dua reveal">اللَّهُمَّ بَارِكْ لَهُ</p>
+
+        <div class="wishes-list reveal" id="wishesList">
+          <div class="no-wishes" id="noWishes">
+            Belum ada ucapan. Jadilah yang pertama! 💙
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIGITAL ENVELOPE SECTION -->
+    <section class="envelope-section" id="envelope">
+      <div class="container">
+        <h2 class="section-title reveal">Amplop Digital</h2>
+
+        <p class="envelope-intro reveal">
+          Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan tanda kasih,
+          dapat melalui rekening berikut:
+        </p>
+
+        <div class="bank-cards reveal" id="bankCards">
+          <!-- Bank cards will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <!-- Islamic Footer Ornament -->
+      <div class="footer-ornament">
+        <svg viewBox="0 0 200 50" class="footer-pattern">
+          <path d="M0 25 Q50 0 100 25 Q150 50 200 25" stroke="#d4af37" fill="none" stroke-width="1" opacity="0.5" />
+          <circle cx="100" cy="25" r="5" fill="#d4af37" opacity="0.5" />
+        </svg>
+      </div>
+
+      <p class="footer-arabic">جَزَاكُمُ اللَّهُ خَيْرًا</p>
+      <p class="footer-message">Terima Kasih</p>
+      <p class="footer-names">Keluarga Besar <span id="footerFamily">Ahmad & Fatimah</span></p>
+
+      <div class="footer-stars">
+        <span>✦</span>
+        <span>✧</span>
+        <span>✦</span>
+      </div>
+
+      <p class="footer-credit">Made with ❤️ & ☪️</p>
+    </footer>
+  </main>
+
+  <!-- FLOATING MUSIC PLAYER -->
+  <button class="music-player" id="musicPlayer" title="Play/Pause Music">
+    <svg id="musicIconPlay" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z" />
+    </svg>
+    <svg id="musicIconPause" viewBox="0 0 24 24" fill="currentColor" class="hidden">
+      <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
+    </svg>
+  </button>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/rsvp.js"></script>
+</body>
+
+</html>

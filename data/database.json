@@ -1,0 +1,51 @@
+{
+    "config": {
+        "event": {
+            "childName": "Mabda Attaqi Imaddudin",
+            "childNickname": "Mabda",
+            "childPhoto": "assets/images/child.jpg",
+            "parentNames": {
+                "father": "Bapak Dr. Aam Imaddudin, M.Pd.",
+                "mother": "Ibu Hesti Risnawati, S.Pd.I."
+            },
+            "quote": "وَإِذْ قَالَ لُقْمَانُ لِابْنِهِ وَهُوَ يَعِظُهُ يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ",
+            "quoteTranslation": "Dan (ingatlah) ketika Luqman berkata kepada anaknya, di waktu ia memberi pelajaran kepadanya: \"Hai anakku, janganlah kamu mempersekutukan Allah.\" (QS. Luqman: 13)"
+        },
+        "prosesiKhitan": {
+            "title": "Prosesi Khitan",
+            "date": "2026-01-18",
+            "time": "08:00",
+            "endTime": "10:00",
+            "location": "Kediaman Keluarga",
+            "address": "Kp. Cihamerang RT.01/RW.10 Desa. Banjaran Wetan Kec. Banjaran Kab. Bandung",
+            "mapsUrl": "https://maps.app.goo.gl/ExZzr4ieC6ck9ZqX7"
+        },
+        "syukuran": {
+            "title": "Syukuran",
+            "date": "2026-01-18",
+            "time": "10:00",
+            "endTime": "14:00",
+            "location": "Rumah Keluarga",
+            "address": "Kp. Cihamerang RT.01/RW.10 Desa. Banjaran Wetan Kec. Banjaran Kab. Bandung",
+            "mapsUrl": "https://maps.app.goo.gl/ExZzr4ieC6ck9ZqX7"
+        },
+        "digitalEnvelope": {
+            "enabled": true,
+            "banks": []
+        },
+        "music": {
+            "enabled": true,
+            "autoplay": true,
+            "src": "assets/audio/background.mp3"
+        }
+    },
+    "guests": [
+        {
+            "id": "mjptlmu7uv80trnsbd",
+            "name": "Farah Budiarti",
+            "createdAt": "2025-12-28T14:24:07.135Z"
+        }
+    ],
+    "wishes": [],
+    "gallery": []
+}

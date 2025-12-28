@@ -1,0 +1,64 @@
+{
+  "event": {
+    "childName": "Muhammad Arsyad",
+    "childNickname": "Arsyad",
+    "childPhoto": "assets/images/child.jpg",
+    "parentNames": {
+      "father": "Bapak Ahmad",
+      "mother": "Ibu Fatimah"
+    },
+    "quote": "وَإِذْ قَالَ لُقْمَانُ لِابْنِهِ وَهُوَ يَعِظُهُ يَا بُنَيَّ لَا تُشْرِكْ بِاللَّهِ",
+    "quoteTranslation": "Dan (ingatlah) ketika Luqman berkata kepada anaknya, di waktu ia memberi pelajaran kepadanya: \"Hai anakku, janganlah kamu mempersekutukan Allah.\" (QS. Luqman: 13)"
+  },
+  "prosesiKhitan": {
+    "title": "Prosesi Khitan",
+    "date": "2025-01-15",
+    "time": "08:00",
+    "endTime": "10:00",
+    "location": "Rumah Keluarga",
+    "address": "Jl. Contoh No. 123, Kota, Provinsi",
+    "mapsUrl": "https://maps.google.com"
+  },
+  "syukuran": {
+    "title": "Syukuran",
+    "date": "2025-01-15",
+    "time": "11:00",
+    "endTime": "14:00",
+    "location": "Rumah Keluarga",
+    "address": "Jl. Contoh No. 123, Kota, Provinsi",
+    "mapsUrl": "https://maps.google.com"
+  },
+  "gallery": [
+    "assets/images/gallery1.jpg",
+    "assets/images/gallery2.jpg",
+    "assets/images/gallery3.jpg",
+    "assets/images/gallery4.jpg",
+    "assets/images/gallery5.jpg",
+    "assets/images/gallery6.jpg"
+  ],
+  "digitalEnvelope": {
+    "enabled": true,
+    "banks": [
+      {
+        "bankName": "Bank BCA",
+        "accountNumber": "1234567890",
+        "accountHolder": "Ahmad"
+      },
+      {
+        "bankName": "Bank Mandiri",
+        "accountNumber": "0987654321",
+        "accountHolder": "Fatimah"
+      }
+    ]
+  },
+  "music": {
+    "enabled": true,
+    "autoplay": true,
+    "src": "assets/audio/background.mp3"
+  },
+  "theme": {
+    "primaryColor": "#1e3a5f",
+    "secondaryColor": "#d4af37",
+    "backgroundColor": "#faf8f5"
+  }
+}
